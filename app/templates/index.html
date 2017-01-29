@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/socket.io/0.9.16/socket.io.min.js"></script>
+
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+</head>
+<body>
+<div class="jumbotron">
+    <h1>Web Socket Arduino Communication</h1>
+</div>
+
+<div class="container" id="content">
+    <div class="row">
+        <p>Asynchronous page updates will appear here:</p>
+        <input id="txt1" class="sync" type="text" />
+        <h3>Number list:</h3>
+        <div id="log">
+    </div>
+</div>
+<script type="text/javascript">
+
+$(document).ready(function(){
+    //connect to the socket server.
+    var socket = io.connect('http://' + document.domain + ':' + location.port + '/test');
+    var numbers_received = [];
+
+    //receive details from server
+    socket.on('newnumber', function(msg) {
+        numbers_received.push(msg);
+
+        $('#log').html(msg.number2);
+    });
+    $('input.sync').on('input', function(event) {
+        socket.emit('value changed', {who: $(this).attr('id'), data: $(this).val()});
+        return false;
+    });
+
+
+});
+
+</script>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,22 @@
+{
+	"config":{
+		"name":"serial",
+		"baudrate":9600,
+		"parity":"None",
+		"stopbits":"1",
+		"bytesize":"8",
+		"timeout":"0"
+		},
+	"database":{
+		"engine":"mysql",
+		"username":"root",
+		"password":"ayambakar",
+		"port":"3306",
+		"database":"my-db",
+		"host":"localhost"
+	},
+	"flask_config":{
+		"config":"development",
+		"secret_key":"rendi_123"
+	}
+}
