@@ -10,6 +10,7 @@ from threading import Thread, Event
 import string
 from app import app
 from app.model.serial_conn import Serializer
+from app.config import test_port
 
 #turn the flask app into a socketio app
 socketio = SocketIO(app)
@@ -17,7 +18,7 @@ socketio = SocketIO(app)
 #random number Generator Thread
 thread = Thread()
 thread_stop_event = Event()
-test_port = Serializer(port = '/dev/ttyACM0',baudrate=9600,waiting=True)
+#test_port = Serializer(port = '/dev/ttyACM0',baudrate=9600,waiting=True)
 
 class RandomThread(Thread):
     def __init__(self):

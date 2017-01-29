@@ -1,11 +1,12 @@
 {
-	"config":{
+	"config_serial":{
 		"name":"serial",
 		"baudrate":9600,
 		"parity":"None",
 		"stopbits":"1",
 		"bytesize":"8",
-		"timeout":"0"
+		"timeout":"0",
+		"host":"/dev/ttyACM0"
 		},
 	"database":{
 		"engine":"mysql",

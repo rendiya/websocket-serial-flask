@@ -4,11 +4,11 @@ import serial
 import time
 #from app import config
 
-ser = serial.Serial(port='/dev/ttyACM0',\
-	baudrate=9600,\
-	parity=serial.PARITY_NONE,\
-	stopbits=serial.STOPBITS_ONE,\
-	bytesize=serial.EIGHTBITS,\
+ser = serial.Serial(port='/dev/ttyACM0',
+	baudrate=9600,
+	parity=serial.PARITY_NONE,
+	stopbits=serial.STOPBITS_ONE,
+	bytesize=serial.EIGHTBITS,
 	timeout=0)
 
 print("connected to: " + ser.portstr)

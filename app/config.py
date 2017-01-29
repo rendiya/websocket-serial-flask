@@ -1,4 +1,5 @@
 import json
+from app.model.serial_conn import Serializer
 
 def get_config():
 	filename = 'config.json'
@@ -7,5 +8,6 @@ def get_config():
 		data_json2 = json.loads(data_json)
 	return data_json2
 
-
-print get_config()
+serial_conf = get_config()
+print serial_conf['config_serial']
+test_port = Serializer(port = serial_conf['config_serial']['host'],baudrate=serial_conf['config_serial']['baudrate'],waiting=True)

@@ -9,3 +9,5 @@ gunicorn --worker-class socketio.sgunicorn.GeventSocketIOWorker main:app -b 127.
 open in your browser
 
 localhost:5000/serial
+
+to change your configuration, please change in config.json
